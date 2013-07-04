@@ -8,9 +8,9 @@ module Rdmx
 
     attr_accessor :dmx, :values, :fixtures, :fixture_class
 
-    def initialize port, fixture_class=nil
+    def initialize device, fixture_class=nil
       @buffer = 0
-      self.dmx = Rdmx::Dmx.new port
+      self.dmx = device
       self.values = Array.new NUM_CHANNELS
       self[0..-1] = 0 # set the universe to a known state
       self.fixture_class = fixture_class
